@@ -6,16 +6,25 @@ const button = document.querySelector('button');
 
 let i;
 
+function getRdmRGB()
+{
+    let red = Math.floor(Math.random() * 255);
+    let green = Math.floor(Math.random() * 255);
+    let blue = Math.floor(Math.random() * 255);
+
+    return "rgb( " + red + ", " + green + ", " + blue + "); "
+}
+
 for (i = 0; i < 256; i++)
 {
     let div = document.createElement('div');
 
-    div.setAttribute('style', 'height: 35px; width: 35px;')
+    div.setAttribute('style', 'height: 35.5px; width: 35.5px;')
 
     container.appendChild(div);
 
     div.addEventListener("mouseover", ()=>{
-        div.setAttribute('style', 'background: blue; height: 35.5px; width: 35.5px;');
+        div.setAttribute('style', 'background: ' + getRdmRGB() + 'height: 35.5px; width: 35.5px;');
     });
 }
 
@@ -29,6 +38,12 @@ button.addEventListener('click', ()=>{
     {
         userNumber = 16;
         alert("You cannot have a grid larger then 100! Please input a smaller grid size.")
+    }
+
+    if (userInput == '' || Number.isInteger(userNumber) == false)
+    {
+        userNumber = 16;
+        alert("Please Enter a Number!")
     }
 
     let totalSquares = userNumber * userNumber;
@@ -49,7 +64,7 @@ button.addEventListener('click', ()=>{
         container.appendChild(newDiv);
 
         newDiv.addEventListener("mouseover", ()=>{
-            newDiv.setAttribute('style', 'background: blue; height: ' + divArea + 'px; width: ' + divArea +'px;');
+            newDiv.setAttribute('style', 'background: ' + getRdmRGB() + ' height: ' + divArea + 'px; width: ' + divArea +'px;');
         });
     }
     
