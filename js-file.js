@@ -15,16 +15,23 @@ for (i = 0; i < 256; i++)
     container.appendChild(div);
 
     div.addEventListener("mouseover", ()=>{
-        div.setAttribute('style', 'background: blue; height: 35px; width: 35px;');
+        div.setAttribute('style', 'background: blue; height: 35.5px; width: 35.5px;');
     });
 }
 
 button.addEventListener('click', ()=>{
-    let userInput = prompt("Please enter how big you would like the Grid (Maximum of 100)");
+    let userInput = prompt("Please enter how big you would like the Grid. (Maximum of 100)");
 
     let j;
     let userNumber = Number(userInput);
-    let totalSquares = Number(userInput) * Number (userInput);
+
+    if (userNumber > 100)
+    {
+        userNumber = 16;
+        alert("You cannot have a grid larger then 100! Please input a smaller grid size.")
+    }
+
+    let totalSquares = userNumber * userNumber;
     let divArea = (600 / userNumber) - 2;
 
     while (container.firstChild)
