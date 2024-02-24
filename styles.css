@@ -13,6 +13,7 @@ button {
     justify-content: center;
     align-items: center;
     height: 30px;
+    width: 600px;
     margin-left: 500px;
     margin-right: 500px;
     margin-top: 40px;
@@ -31,11 +32,9 @@ button {
 }
 
 .container > div {
-    display: flex;
-    height: 30px;
-    width: 30px;
     border-style: solid;
     border-color: black;
+    border-width: 1px;
     margin: 0;
     padding: 0;
 }

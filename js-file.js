@@ -10,10 +10,12 @@ for (i = 0; i < 256; i++)
 {
     let div = document.createElement('div');
 
+    div.setAttribute('style', 'height: 35px; width: 35px;')
+
     container.appendChild(div);
 
     div.addEventListener("mouseover", ()=>{
-        div.setAttribute('style', 'background: blue');
+        div.setAttribute('style', 'background: blue; height: 35px; width: 35px;');
     });
 }
 
@@ -21,7 +23,9 @@ button.addEventListener('click', ()=>{
     let userInput = prompt("Please enter how big you would like the Grid (Maximum of 100)");
 
     let j;
+    let userNumber = Number(userInput);
     let totalSquares = Number(userInput) * Number (userInput);
+    let divArea = (600 / userNumber) - 2;
 
     while (container.firstChild)
     {
@@ -33,7 +37,13 @@ button.addEventListener('click', ()=>{
     {
         let newDiv = document.createElement('div');
 
+        newDiv.setAttribute('style', 'height: ' + divArea + 'px; width: ' + divArea +'px; ')
+
         container.appendChild(newDiv);
+
+        newDiv.addEventListener("mouseover", ()=>{
+            newDiv.setAttribute('style', 'background: blue; height: ' + divArea + 'px; width: ' + divArea +'px;');
+        });
     }
     
 });
